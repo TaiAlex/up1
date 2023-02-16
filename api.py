@@ -1,10 +1,9 @@
 import pydub
 
 # # files                                                                         
-src = r".\audio\16_02_2023\ulatroi.mp3"
+src = r".\home\ubuntu\up1\dead.mp3"
 
-dst = r".\audio\16_02_2023\ulatroi1.wav"
-# dst = r"E:\04-02-2023\folder1\ulatroi.wav"
+dst = r".\home\ubuntu\up1\dead.wav"
 
 # convert wav to mp3                                                            
 sound = pydub.AudioSegment.from_mp3(src)
