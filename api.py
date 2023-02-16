@@ -1,31 +1,11 @@
-from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import HTMLResponse
+import pydub
 
-app = FastAPI()
+# # files                                                                         
+src = r".\audio\16_02_2023\ulatroi.mp3"
 
+dst = r".\audio\16_02_2023\ulatroi1.wav"
+# dst = r"E:\04-02-2023\folder1\ulatroi.wav"
 
-@app.post("/files/")
-async def create_files(
-    files: list[bytes] = File(description="Multiple files as bytes"),
-):
-    return {"file_sizes": [len(file) for file in files]}
-
-
-@app.post("/uploadfiles/")
-async def create_upload_files(
-    files: list[UploadFile] = File(description="Multiple files as UploadFile"),
-):
-    return {"filenames": [file.filename for file in files]}
-
-
-@app.get("/")
-async def main():
-    content = """
-<body>
-<form action="/uploadfiles/" enctype="multipart/form-data" method="post">
-<input name="files" type="file" multiple>
-<input type="submit">
-</form>
-</body>
-    """
-    return HTMLResponse(content=content)
+# convert wav to mp3                                                            
+sound = pydub.AudioSegment.from_mp3(src)
+sound.export(dst, format="wav")
