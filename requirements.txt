@@ -15,3 +15,15 @@ redis==3.5.3
 numpy==1.21.2
 pillow==8.3.2
 opencv-python==4.5.3.56
+Traceback (most recent call last):
+  File "/home/pi/Downloads/lora/Code_thay.py", line 5, in <module>
+    from Lora_Driver.IoT_Driver import mylora
+  File "/home/pi/Downloads/lora/Lora_Driver/IoT_Driver.py", line 5, in <module>
+    from SX127x.LoRa import *
+  File "/home/pi/Downloads/lora/Lora_Driver/SX127x/LoRa.py", line 84, in <module>
+    class LoRa(object):
+  File "/home/pi/Downloads/lora/Lora_Driver/SX127x/LoRa.py", line 85, in LoRa
+    spi = BOARD.SpiDev()			  # init and get the baord's SPI
+  File "/home/pi/Downloads/lora/Lora_Driver/SX127x/board_config.py", line 89, in SpiDev
+    BOARD.spi.open(spi_bus, spi_cs)
+FileNotFoundError: [Errno 2] No such file or directory
